@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 
 namespace PartyRental
 {
-    public class RentalData
+    public class RentalData : DbContext
     {
+        public RentalData() : base("MyRentalData") { }
         public DbSet<Equipment> Equipments { get; set; }
         public DbSet<Booking> Bookings { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder
-                .UseLazyLoadingProxies()
-                .UseSqlServer(@"Server
+    
     }
 }
