@@ -14,6 +14,6 @@ namespace PartyRental
         public string Name { get; set; }
         public Category Category { get; set; }
         public decimal PricePerDay { get; set; }
-        public ICollection<Booking> Bookings { get; set; }
+        public virtual List<Booking> Bookings { get; set; }
     }
 }
