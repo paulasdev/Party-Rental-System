@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace PartyRental
 {
-    internal class Booking
+    public class Booking
     {
+        public int BookingId { get; set; }
+        public int EquipmentId { get; set; }
+        public Equipment Equipment { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

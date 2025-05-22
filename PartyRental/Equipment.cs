@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace PartyRental
 {
-    internal class Equipment
+    public enum Category { Decorations, Audio, Catering }
+
+    public class Equipment
     {
+        public int EquipmentId { get; set; }
+        public string Name { get; set; }
+        public Category Category { get; set; }
+        public decimal PricePerDay { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
     }
 }
