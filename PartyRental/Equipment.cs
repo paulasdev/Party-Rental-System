@@ -12,8 +12,14 @@ namespace PartyRental
     {
         public int EquipmentId { get; set; }
         public string Name { get; set; }
-        public virtual Category Category { get; set; }
+        public Category Category { get; set; }
         public decimal PricePerDay { get; set; }
         public virtual List<Booking> Bookings { get; set; }
+        public string DisplayLabel
+        {
+            get { return $"{Category} - {Name}"; }
+        }
+        public string ImagePath { get; set; }
+
     }
 }

@@ -5,8 +5,124 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartyRental"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+
+    <Grid Margin="10">
+        <TabControl>
+            <!-- Search & Book Tab -->
+            <TabItem Header="Search &amp; Book">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Left Panel -->
+                    <StackPanel Grid.Column="0" Margin="10">
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="Equipment Type" FontWeight="Bold" VerticalAlignment="Center" Width="120"/>
+                            <ComboBox x:Name="cbxCategory" Width="150" />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="Start Date" FontWeight="Bold" VerticalAlignment="Center" Width="120"/>
+                            <DatePicker x:Name="dpStartDate" Width="150" SelectedDateFormat="Short">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="Control.Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="DatePickerTextBox">
+                                                    <TextBox x:Name="PART_TextBox"
+                                                             Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType=DatePicker}, StringFormat=dd/MM/yyyy, ConverterCulture='en-IE'}"
+                                                             Background="{TemplateBinding Background}"
+                                                             BorderBrush="{TemplateBinding BorderBrush}"
+                                                             BorderThickness="{TemplateBinding BorderThickness}" />
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <TextBlock Text="End Date" FontWeight="Bold" VerticalAlignment="Center" Width="120"/>
+                            <DatePicker x:Name="dpEndDate" Width="150" SelectedDateFormat="Short">
+                                <DatePicker.Resources>
+                                    <Style TargetType="DatePickerTextBox">
+                                        <Setter Property="Control.Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="DatePickerTextBox">
+                                                    <TextBox x:Name="PART_TextBox"
+                                                             Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType=DatePicker}, StringFormat=dd/MM/yyyy, ConverterCulture='en-IE'}"
+                                                             Background="{TemplateBinding Background}"
+                                                             BorderBrush="{TemplateBinding BorderBrush}"
+                                                             BorderThickness="{TemplateBinding BorderThickness}" />
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </DatePicker.Resources>
+                            </DatePicker>
+                        </StackPanel>
+
+                        <Button Content="Search" Click="Search_Click" Width="70" Margin="0,0,0,10" />
+
+                        <TextBlock Text="Available Equipment" FontWeight="Bold" Margin="0,10,0,5"/>
+                        <ListBox x:Name="lbxResults" Height="100" DisplayMemberPath="DisplayLabel" SelectionChanged="lbxResults_SelectionChanged"/>
+
+                    </StackPanel>
+
+                    <!-- Right Panel -->
+                    <StackPanel Grid.Column="1" Margin="10" HorizontalAlignment="Center">
+                        <TextBlock Text="Party Equipment Rental" 
+                                   FontSize="18" 
+                                   FontWeight="Bold" 
+                                   TextAlignment="Center"
+                                   Margin="0,0,0,10" />
+
+                        <!-- Bordered Image Box -->
+                        <Border  Padding="5"  Margin="0,0,0,10" Width="200" Height="99">
+                            <Image x:Name="imgEquipment"
+                                   Stretch="Uniform"
+                                   Visibility="Collapsed" 
+                                   />
+                        </Border>
+
+                        <TextBlock Text="Selected Equipment" FontWeight="Bold" />
+                        <TextBlock x:Name="txtDetails" TextWrapping="Wrap" Height="100" Margin="0,5,0,0" />
+
+                        <Button Content="Book" Click="Book_Click" Width="100" Margin="0,10,0,0" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- All Equipment Tab -->
+            <TabItem Header="All Equipment">
+                <Grid>
+                    <DataGrid x:Name="dataGridAllEquipment" AutoGenerateColumns="True" Margin="10" />
+                </Grid>
+            </TabItem>
+
+            <!-- Bookings Tab -->
+            <TabItem Header="Bookings">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="71*"/>
+                        <ColumnDefinition Width="316*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <DataGrid x:Name="dataGridBookings" AutoGenerateColumns="True" Margin="10,10,10,10" Grid.ColumnSpan="2" />
+                    <Button Grid.Row="1" Content="Delete" Click="DeleteBooking_Click" HorizontalAlignment="Left" Margin="582,10,0,10" Width="40" Grid.Column="1" />
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
+    

@@ -66,6 +66,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DbContextOptionsBuilder.cs" />
+    <Compile Include="Migrations\202505222142579_InitialCreate.cs" />
+    <Compile Include="Migrations\202505222142579_InitialCreate.designer.cs">
+      <DependentUpon>202505222142579_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202505242331147_AddImagePath.cs" />
+    <Compile Include="Migrations\202505242331147_AddImagePath.designer.cs">
+      <DependentUpon>202505242331147_AddImagePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="RentalData.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +105,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202505222142579_InitialCreate.resx">
+      <DependentUpon>202505222142579_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505242331147_AddImagePath.resx">
+      <DependentUpon>202505242331147_AddImagePath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -108,6 +123,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\balloons.png" />
+    <Resource Include="Images\BuffetTable.png" />
+    <Resource Include="Images\speakerset.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
