@@ -73,38 +73,7 @@ namespace PartyRental
                                   $"Rental Date: {rentalStart}\n" +
                                   $"Return Date: {rentalEnd}";
 
-                if (!string.IsNullOrWhiteSpace(selectedEquipment.ImagePath))
-                {
-                    try
-                    {
-                        // Build full path to image in the 'Images' folder
-                        string basePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
-                        string fullImagePath = System.IO.Path.Combine(basePath, selectedEquipment.ImagePath);
-
-                        if (File.Exists(fullImagePath))
-                        {
-                            imgEquipment.Source = new BitmapImage(new Uri(fullImagePath));
-                            imgEquipment.Visibility = Visibility.Visible;
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Image not found: {fullImagePath}");
-                            imgEquipment.Source = null;
-                            imgEquipment.Visibility = Visibility.Collapsed;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error loading image: {ex.Message}");
-                        imgEquipment.Source = null;
-                        imgEquipment.Visibility = Visibility.Collapsed;
-                    }
-                }
-                else
-                {
-                    imgEquipment.Source = null;
-                    imgEquipment.Visibility = Visibility.Collapsed;
-                }
+    
             }
         }
         
