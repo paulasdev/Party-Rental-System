@@ -127,6 +127,9 @@
   <ItemGroup>
     <Resource Include="Images\balloons.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Video\PartyRental.mov" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

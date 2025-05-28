@@ -8,6 +8,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManagement", "DataManagement\DataManagement.csproj", "{A4D52CB6-14F1-4AA0-B114-BBBC2D0F0BAE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BFDD2B3E-27F2-42CE-B887-0FDA1FE83569}"
+	ProjectSection(SolutionItems) = preProject
+		..\PartyRental.mov = ..\PartyRental.mov
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
